@@ -1,0 +1,379 @@
+initing data by random
+[OptiX]initializeOptix begin...
+max ray num:                10000x10000x1
+data num:                   6000000
+aabb_width:                 632.000000
+column_num:                 2
+Final GAS size: 202.756836 MB
+[Time] initializeOptix : 412.594 ms
+[OptiX]initializeOptix end
+Build the bindex structure 0...
+Bindex data min: 0  max: 5999999
+
+Build the bindex structure 1...
+Bindex data min: 0  max: 5999999
+
+
+BinDex scan...
+input [operator] [target_l] [target_r] (1/2)
+lt 0
+input [operator] [target_l] [target_r] (2/2)
+lt 0
+RUNNING 0
+lt time: 0.001000 ms
+
+RUNNING 0
+lt time: 0.001000 ms
+
+[INFO] 0 face merge, other skipped.
+0 < x < 0
+0 < x < 0
+[INFO] 0 face scan, other skipped.
+[INFO] 0 face scan skipped for the same compares[0] and compares[1].
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0161133 ms
+[Time] refine: 0 ms
+[Time] total scan: 0.145996 ms
+[Time] transfer result back to memory: 0.0739746 ms
+[Time] total time: 0.219971 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 0/0
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 10000000
+input [operator] [target_l] [target_r] (2/2)
+lt 10000000
+RUNNING 0
+lt time: 0.001000 ms
+
+RUNNING 0
+lt time: 0.003000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 10000000
+0 < x < 10000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0109863 ms
+[Time] refine: 0.00292969 ms
+[Time] total scan: 0.219971 ms
+[Time] transfer result back to memory: 0.0771484 ms
+[Time] total time: 0.297119 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 20000000
+input [operator] [target_l] [target_r] (2/2)
+lt 20000000
+RUNNING 0
+lt time: 0.000000 ms
+
+RUNNING 0
+lt time: 0.000000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 20000000
+0 < x < 20000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0090332 ms
+[Time] refine: 0.000976562 ms
+[Time] total scan: 0.118896 ms
+[Time] transfer result back to memory: 0.0671387 ms
+[Time] total time: 0.186035 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 30000000
+input [operator] [target_l] [target_r] (2/2)
+lt 30000000
+RUNNING 0
+lt time: 0.000000 ms
+
+RUNNING 0
+lt time: 0.001000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 30000000
+0 < x < 30000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0100098 ms
+[Time] refine: 0.00195312 ms
+[Time] total scan: 0.12207 ms
+[Time] transfer result back to memory: 0.0678711 ms
+[Time] total time: 0.189941 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 40000000
+input [operator] [target_l] [target_r] (2/2)
+lt 40000000
+RUNNING 0
+lt time: 0.000000 ms
+
+RUNNING 0
+lt time: 0.003000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 40000000
+0 < x < 40000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0170898 ms
+[Time] refine: 0.00195312 ms
+[Time] total scan: 0.155029 ms
+[Time] transfer result back to memory: 0.0720215 ms
+[Time] total time: 0.227051 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 50000000
+input [operator] [target_l] [target_r] (2/2)
+lt 50000000
+RUNNING 0
+lt time: 0.001000 ms
+
+RUNNING 0
+lt time: 0.001000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 50000000
+0 < x < 50000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0109863 ms
+[Time] refine: 0.00195312 ms
+[Time] total scan: 0.116943 ms
+[Time] transfer result back to memory: 0.0681152 ms
+[Time] total time: 0.185059 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 60000000
+input [operator] [target_l] [target_r] (2/2)
+lt 60000000
+RUNNING 0
+lt time: 0.003000 ms
+
+RUNNING 0
+lt time: 0.003000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 60000000
+0 < x < 60000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0109863 ms
+[Time] refine: 0.00195312 ms
+[Time] total scan: 0.13501 ms
+[Time] transfer result back to memory: 0.0681152 ms
+[Time] total time: 0.203125 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 70000000
+input [operator] [target_l] [target_r] (2/2)
+lt 70000000
+RUNNING 0
+lt time: 0.003000 ms
+
+RUNNING 0
+lt time: 0.003000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 70000000
+0 < x < 70000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0090332 ms
+[Time] refine: 0.00195312 ms
+[Time] total scan: 0.118896 ms
+[Time] transfer result back to memory: 0.0668945 ms
+[Time] total time: 0.185791 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 80000000
+input [operator] [target_l] [target_r] (2/2)
+lt 80000000
+RUNNING 0
+lt time: 0.001000 ms
+
+RUNNING 0
+lt time: 0.001000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 80000000
+0 < x < 80000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0119629 ms
+[Time] refine: 0.00219727 ms
+[Time] total scan: 0.12207 ms
+[Time] transfer result back to memory: 0.0681152 ms
+[Time] total time: 0.190186 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 90000000
+input [operator] [target_l] [target_r] (2/2)
+lt 90000000
+RUNNING 0
+lt time: 0.000000 ms
+
+RUNNING 0
+lt time: 0.001000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 90000000
+0 < x < 90000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0100098 ms
+[Time] refine: 0.00219727 ms
+[Time] total scan: 0.124023 ms
+[Time] transfer result back to memory: 0.0668945 ms
+[Time] total time: 0.190918 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+lt 100000000
+input [operator] [target_l] [target_r] (2/2)
+lt 100000000
+RUNNING 0
+lt time: 0.001000 ms
+
+RUNNING 0
+lt time: 0.001000 ms
+
+[INFO] merge face 0 skipped, set it to 0xFF
+[INFO] 0 face merge skipped.
+[INFO] 1 face merge skipped.
+0 < x < 100000000
+0 < x < 100000000
+[INFO] 0 face scan skipped.
+[INFO] 1 face scan skipped.
+total selectivity: 0.000000
+
+###########   Time  ##########
+[Time] query to ray (ray building): 0 ms
+[Time] data sieving: 0 ms
+[Time] merge: 0.0109863 ms
+[Time] refine: 0.00219727 ms
+[Time] total scan: 0.10498 ms
+[Time] transfer result back to memory: 0.0681152 ms
+[Time] total time: 0.173096 ms
+##############################
+
+[CHECK]check final result.
+[CHECK]hit 6000000/6000000
+[CHECK]check final result done.
+
+input [operator] [target_l] [target_r] (1/2)
+exit

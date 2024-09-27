@@ -1,0 +1,3 @@
+[submodule "teb"]
+	path = teb
+	url = https://github.com/harald-lang/tree-encoded-bitmaps

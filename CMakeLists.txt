@@ -6,14 +6,14 @@ add_executable(wahConv host/wahConv.c host/wahCpu.c host/wahConvMain.c)
 add_executable(wahProfileGPU
   host/wahConv.c host/wahCpu.c
   wahGpuCmprs.cu wahGpuDirect.cu Andrzejewski.cu
-  wahDeviceStruct.cu wahProfileDat.cu wahProfileMain.cu runTestCases.cu
+  wahDeviceStruct.cu profileDat.cu profileMain.cu runTestCases.cu
   host/roaring.c
   # teb/thirdparty/roaring/roaring.c
 )
 add_executable(wahSynthGPU
   host/nbitRandGen.c host/wahRandGen.c
   wahGpuCmprs.cu wahGpuDirect.cu Andrzejewski.cu
-  wahSynthMain.cu
+  synthMain.cu
 )
 
 target_link_libraries(wahProfileGPU PUBLIC cuda)

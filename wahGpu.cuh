@@ -39,6 +39,10 @@ void wahEncNo1AndDec(int *enc, const int *excScan, size_t encSz, const int *dec,
 mgpu::mem_t<int> wahCompress(const int *dec, size_t wahSz,
                              mgpu::context_t &context);
 
+mgpu::mem_t<uint32_t>
+dbjoinFlatWah(const uint32_t *fact, size_t factSz, const uint32_t* dim1,
+              const uint32_t *dim2, uint32_t min, uint32_t max, mgpu::context_t &ctx);
+
 struct wahDev_s {
   mgpu::mem_t<int> _wah;
   mgpu::mem_t<int> _excScan;

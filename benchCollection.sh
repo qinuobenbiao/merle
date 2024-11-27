@@ -22,10 +22,12 @@ profOne() {
   else
     echo "$1 $2 starts"
     if [ "${5:-bruh}" = --semi ]; then
-      build/wahProfileGPU --inFmt "wahData/$1/%zu.wah" --stashOut "${4}/${1}_stash.csv" \
+      build/wahProfileGPU benchCollection --inFmt "wahData/$1/%zu.wah" \
+        --stashOut "${4}/${1}_stash.csv" \
         --opOut "${4}/${1}_${2}.csv" --op "$2" --semi >/dev/null
     else
-      build/wahProfileGPU --inFmt "wahData/$1/%zu.wah" --stashOut "${4}/${1}_stash.csv" \
+      build/wahProfileGPU benchCollection --inFmt "wahData/$1/%zu.wah" \
+        --stashOut "${4}/${1}_stash.csv" \
         --opOut "${4}/${1}_${2}.csv" --op "$2" >/dev/null
     fi
   fi

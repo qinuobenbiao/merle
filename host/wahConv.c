@@ -122,3 +122,27 @@ struct wahHost_s* wahDup(const struct wahHost_s* src, size_t nDup) {
   // res->dat[src->cmprsNrWord * nDup] = 0x80010000;
   return res;
 }
+
+size_t simpleJoin(const uint32_t *fact, size_t factSize, const uint32_t *dimA,
+                  const uint32_t *dimB, uint32_t min, uint32_t max, uint32_t *result) {
+  size_t numWords = (factSize + 30) / 31;
+  size_t wordIdx = 0, bitIdx = 0, curWord = 0;
+  for (size_t i = 0; i < factSize; i++, bitIdx++) {
+    if (31 == bitIdx) {
+      bitIdx = 0;
+      result[wordIdx++] = curWord;
+      curWord = 0;
+    }
+    uint32_t dimValue = fact[i];
+    if (dimA != NULL) {
+      dimValue = dimA[dimValue];
+      if (dimB != NULL)
+        dimValue = dimB[dimValue];
+    }
+    curWord <<= 1;
+    if (dimValue >= min && dimValue < max)
+      curWord |= 1;
+  }
+  result[wordIdx] = curWord;
+  return numWords;
+}

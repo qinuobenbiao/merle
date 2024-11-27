@@ -1,6 +1,7 @@
 #include "wahGpu.cuh"
 #include "moderngpu/kernel_load_balance.cuh"
 #include "moderngpu/kernel_compact.cuh"
+#include <cstdint>
 
 mgpu::mem_t<int> wahCntExcScan(const int *wah, size_t sz, mgpu::context_t &ctx) {
   mgpu::mem_t<int> res(sz + 1, ctx);
@@ -193,5 +194,73 @@ mgpu::mem_t<int> wahCompress(const int* dec, size_t wahSz, mgpu::context_t& cont
     auto sum = scanCpaDat[i], prevSum = i == 0 ? 0 : scanCpaDat[i - 1];
     resDat[i] = val + sum - prevSum;
   }, resCnt, context);
+  return res;
+}
+
+mgpu::mem_t<uint32_t>
+dbjoinFlatWah(const uint32_t *fact, size_t factSz, const uint32_t* dim1,
+              const uint32_t *dim2, uint32_t min, uint32_t max, mgpu::context_t &ctx) {
+  // Each thread processes 32 elements, but 1 thread in each warp is idle
+  // Each warp therefore processes 31 * 32 elements and produces 32 31bit words
+  // Each cta processes 31 * 128 elements and produces 128 31bit words
+  using launch_t = mgpu::launch_box_t<mgpu::arch_20_cta<128, 31>>;
+  using params_t = launch_t::sm_ptx;
+  static constexpr size_t nt = params_t::nt, vt = params_t::vt,
+                          nv = nt * vt, vw = 32 * vt;
+  const size_t resSz = factSz / 31;
+  mgpu::mem_t<uint32_t> res(resSz, ctx);
+  uint32_t* resData = (uint32_t*)res.data();
+
+  auto sel_f = [=]MGPU_DEVICE(int tid, int cta) {
+    size_t inWarpTid = tid % 32, elemIdx = nv * cta + vw * (tid / 32) + 30 - inWarpTid;
+    uint32_t thrd_res = 999, cur_res; int bal;
+    if (dim2 != nullptr) {
+      #pragma unroll
+      for (size_t i = 0; i < vt + 1; ++i, elemIdx += vt) {
+        if (inWarpTid == 31 || elemIdx >= factSz) {
+          cur_res = 0;
+        } else {
+          uint32_t val = dim2[dim1[fact[elemIdx]]];
+          cur_res = val < max && val >= min;
+        }
+        cur_res = __ballot_sync(0x7fffffff, cur_res);
+        if (inWarpTid == i)
+          thrd_res = cur_res;
+      }
+    } else if (dim1 != nullptr) {
+      #pragma unroll
+      for (size_t i = 0; i < vt + 1; ++i, elemIdx += vt) {
+        if (inWarpTid == 31 || elemIdx >= factSz) {
+          bal = 0;
+        } else {
+          uint32_t val = dim1[fact[elemIdx]];
+          bal = val < max && val >= min;
+        }
+        cur_res = __ballot_sync(0x7fffffff, bal);
+        if (inWarpTid == i) {
+          // if (cta == 0)
+          //   printf("%u %d %zu %zu\n", cur_res, tid, inWarpTid, i);
+          thrd_res = cur_res;
+        }
+      }
+    } else {
+      #pragma unroll
+      for (size_t i = 0; i < vt + 1; ++i, elemIdx += vt) {
+        if (inWarpTid == 31 || elemIdx >= factSz) {
+          cur_res = 0;
+        } else {
+          uint32_t val = fact[elemIdx];
+          cur_res = val < max && val >= min;
+        }
+        cur_res = __ballot_sync(0x7fffffff, cur_res);
+        if (inWarpTid == i)
+          thrd_res = cur_res;
+      }
+    }
+
+    if (cta * nt + tid < resSz)
+      resData[cta * nt + tid] = thrd_res;
+  };
+  mgpu::cta_transform<launch_t>(sel_f, factSz, ctx);
   return res;
 }

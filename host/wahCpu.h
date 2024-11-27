@@ -16,6 +16,8 @@ struct wahHost_s {
 
 struct wahHost_s* loadArrayFile(const char* path);
 struct wahHost_s* loadWahFile(const char* path);
+size_t simpleJoin(const uint32_t *fact, size_t factSize, const uint32_t *dimA,
+                  const uint32_t *dimB, uint32_t min, uint32_t max, uint32_t *result);
 
 size_t wahLongest1Fill(const uint32_t* b31, size_t nrWord);
 size_t wahCmprsNo1CPU(const uint32_t *b31, size_t nrWord, uint32_t *out);
